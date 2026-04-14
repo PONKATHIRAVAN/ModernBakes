@@ -1,0 +1,35 @@
+﻿@model BakeryShop.Models.Product
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Delete Product</h2>
+
+<div class="alert alert-danger">
+
+    <h4>Are you sure you want to delete this product?</h4>
+
+</div>
+
+<div class="card p-3">
+
+    <p><b>Name:</b> @Model.Name</p>
+
+    <p><b>Category:</b> @Model.Category</p>
+
+    <p><b>Price:</b> ₹@Model.Price</p>
+
+    <img src="~/images/@Model.ImagePath" width="120" />
+
+</div>
+
+<form asp-action="DeleteConfirm" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <button class="btn btn-danger mt-3">Delete</button>
+
+    <a href="/Product" class="btn btn-secondary mt-3">Cancel</a>
+
+</form>

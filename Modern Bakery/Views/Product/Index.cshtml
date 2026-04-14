@@ -1,0 +1,334 @@
+﻿@model IEnumerable<BakeryShop.Models.Product>
+
+
+<style>
+    .product-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+
+        .product-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .product-card img {
+            transition: 0.4s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.08);
+        }
+
+    .product-title {
+        font-weight: 600;
+    }
+
+    .price-tag {
+        font-size: 18px;
+        color: #28a745;
+    }
+
+    .fade-up {
+        animation: fadeUp 0.8s ease forwards;
+    }
+
+    @@keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<div class="container">
+
+    <!-- CAKE SECTION -->
+
+    <h2 class="mt-4">🎂 Cakes</h2>
+
+    <div class="row">
+
+        @foreach (var item in Model.Where(p => p.Category == "Cake"))
+        {
+
+            <div class="col-md-3 mb-4 fade-up">
+
+                <div class="card product-card shadow-sm">
+
+                    <a href="/Product/Details/@item.Id">
+
+                        <img src="~/images/@item.ImagePath"
+                             class="card-img-top"
+                             style="height:200px; object-fit:cover;">+
+                    </a>
+
+                    <div class="card-body text-center">
+
+                        <h5 class="product-title">@item.Name</h5>
+
+                        <p class="price-tag fw-bold">₹@item.Price</p>
+
+                        <a href="/Product/Details/@item.Id"
+                           class="btn btn-outline-primary btn-sm mt-2">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+    <!-- COOKIES SECTION -->
+
+    <h2 class="mt-5">🍪 Cookies</h2>
+
+    <div class="row">
+
+        @foreach (var item in Model.Where(p => p.Category == "Cookies"))
+        {
+            <div class="col-md-3 mb-4 fade-up">
+
+                <div class="card product-card shadow-sm">
+
+                    <a href="/Product/Details/@item.Id">
+
+                        <img src="~/images/@item.ImagePath"
+                             class="card-img-top"
+                             style="height:200px; object-fit:cover;">
+                    </a>
+
+                    <div class="card-body text-center">
+
+                        <h5 class="product-title">@item.Name</h5>
+
+                        <p class="price-tag fw-bold">₹@item.Price</p>
+
+                        <a href="/Product/Details/@item.Id"
+                           class="btn btn-outline-primary btn-sm mt-2">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+    <!-- CHOCOLATE SECTION -->
+
+    <h2 class="mt-5">🍫 Chocolates</h2>
+
+    <div class="row">
+
+        @foreach (var item in Model.Where(p => p.Category != null && p.Category.Trim().ToLower() == "chocolate"))
+        {
+            <div class="col-md-3 mb-4 fade-up">
+
+                <div class="card product-card shadow-sm">
+
+                    <a href="/Product/Details/@item.Id">
+
+                        <img src="~/images/@item.ImagePath"
+                             class="card-img-top"
+                             style="height:200px; object-fit:cover;">
+                    </a>
+
+                    <div class="card-body text-center">
+
+                        <h5 class="product-title">@item.Name</h5>
+
+                        <p class="price-tag fw-bold">₹@item.Price</p>
+
+                        <a href="/Product/Details/@item.Id"
+                           class="btn btn-outline-primary btn-sm mt-2">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+
+    <!-- VARKEY SECTION -->
+
+    <h2 class="mt-5">🥐 Varkey</h2>
+
+    <div class="row">
+
+        @foreach (var item in Model.Where(p =>
+                !string.IsNullOrEmpty(p.Category) &&
+                p.Category.Equals("Varkey", StringComparison.OrdinalIgnoreCase)))
+        {
+            <div class="col-md-3 mb-4 fade-up">
+
+                <div class="card product-card shadow-sm">
+
+                    <a href="/Product/Details/@item.Id">
+
+                        <img src="~/images/@item.ImagePath"
+                             class="card-img-top"
+                             style="height:200px; object-fit:cover;">
+                    </a>
+
+                    <div class="card-body text-center">
+
+                        <h5 class="product-title">@item.Name</h5>
+
+                        <p class="price-tag fw-bold">₹@item.Price</p>
+
+                        <a href="/Product/Details/@item.Id"
+                           class="btn btn-outline-primary btn-sm mt-2">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+    <!-- SWEETS SECTION -->
+
+    <h2 class="mt-5">🍬 Sweets</h2>
+
+    <div class="row">
+
+        @foreach (var item in Model.Where(p =>
+                !string.IsNullOrEmpty(p.Category) &&
+                p.Category.Equals("Sweets", StringComparison.OrdinalIgnoreCase)))
+        {
+            <div class="col-md-3 mb-4 fade-up">
+
+                <div class="card product-card shadow-sm">
+
+                    <a href="/Product/Details/@item.Id">
+
+                        <img src="~/images/@item.ImagePath"
+                             class="card-img-top"
+                             style="height:200px; object-fit:cover;">
+                    </a>
+
+                    <div class="card-body text-center">
+
+                        <h5 class="product-title">@item.Name</h5>
+
+                        <p class="price-tag fw-bold">₹@item.Price</p>
+
+                        <a href="/Product/Details/@item.Id"
+                           class="btn btn-outline-primary btn-sm mt-2">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+
+    <!-- WINE SECTION -->
+    <h2 class="mt-5">🍷 Wine</h2>
+
+    <div class="row">
+
+        @foreach (var item in Model.Where(p =>
+                !string.IsNullOrEmpty(p.Category) &&
+                p.Category.Equals("Wine", StringComparison.OrdinalIgnoreCase)))
+        {
+            <div class="col-md-3 mb-4 fade-up">
+
+                <div class="card product-card shadow-sm">
+
+                    <a href="/Product/Details/@item.Id">
+
+                        <img src="~/images/@item.ImagePath"
+                             class="card-img-top"
+                             style="height:200px; object-fit:cover;">
+                    </a>
+
+                    <div class="card-body text-center">
+
+                        <h5 class="product-title">@item.Name</h5>
+
+                        <p class="price-tag fw-bold">₹@item.Price</p>
+
+                        <a href="/Product/Details/@item.Id"
+                           class="btn btn-outline-primary btn-sm mt-2">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+    <!-- TEAPOWDER SECTION -->
+
+    <h2 class="mt-5">☕ Tea Powder</h2>
+
+    <div class="row">
+
+        @foreach (var item in Model.Where(p =>
+                !string.IsNullOrEmpty(p.Category) &&
+                p.Category.Equals("Tea Powder", StringComparison.OrdinalIgnoreCase)))
+        {
+            <div class="col-md-3 mb-4 fade-up">
+
+                <div class="card product-card shadow-sm">
+
+                    <a href="/Product/Details/@item.Id">
+
+                        <img src="~/images/@item.ImagePath"
+                             class="card-img-top"
+                             style="height:200px; object-fit:cover;">
+                    </a>
+
+                    <div class="card-body text-center">
+
+                        <h5 class="product-title">@item.Name</h5>
+
+                        <p class="price-tag fw-bold">₹@item.Price</p>
+
+                        <a href="/Product/Details/@item.Id"
+                           class="btn btn-outline-primary btn-sm mt-2">
+                            View Details
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+        }
+
+    </div>
+</div>

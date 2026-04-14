@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BakeryShop.Models.ContactMessage>
+
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4">📊 Customer Feedback (Admin)</h2>
+
+    <table class="table table-bordered">
+
+        <tr>
+            <th>Name</th>
+            <th>Message</th>
+            <th>Rating</th>
+            <th>Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Message</td>
+                <td>@item.Rating ⭐</td>
+
+                <td>
+                    <a href="/AdminFeedback/Edit/@item.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="/AdminFeedback/Delete/@item.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

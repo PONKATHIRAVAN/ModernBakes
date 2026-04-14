@@ -1,0 +1,30 @@
+﻿@model BakeryShop.Models.ContactMessage
+
+<div class="container mt-4">
+
+    <h2>Edit Feedback</h2>
+
+    <form method="post">
+
+        <input type="hidden" asp-for="Id" />
+
+        <div class="mb-3">
+            <label>Name</label>
+            <input asp-for="Name" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Message</label>
+<textarea asp-for="Message" class="form-control"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label>Rating</label>
+            <input asp-for="Rating" class="form-control">
+        </div>
+
+        <button class="btn btn-success">Update</button>
+
+    </form>
+
+</div>

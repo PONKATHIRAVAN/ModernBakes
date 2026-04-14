@@ -1,0 +1,72 @@
+﻿@* @model BakeryShop.Models.Product
+
+@{
+    Layout = "_Layout";
+}
+
+<h2>Edit Product</h2>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+
+        <label>Name</label>
+
+        <input asp-for="Name" class="form-control" />
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Category</label>
+
+        <input asp-for="Category" class="form-control" />
+
+    </div>
+
+    <div class="mb-3">
+
+        <label>Price</label>
+
+        <input asp-for="Price" class="form-control" />
+
+    </div>
+
+    <button class="btn btn-primary">Update</button>
+
+</form> *@
+
+
+@model BakeryShop.Models.Product
+
+<h2>Edit Product</h2>
+
+<form method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label>Product Name</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Price</label>
+        <input asp-for="Price" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label>Category</label>
+        <input asp-for="Category" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Update Product</button>
+
+    <a href="/Product" class="btn btn-secondary">Cancel</a>
+
+</form>
+
+
+       

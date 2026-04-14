@@ -1,0 +1,53 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<div class="container mt-4">
+
+    <h2>Admin Dashboard</h2>
+
+    <div class="row mt-4">
+
+        <div class="col-md-4">
+
+            <div class="card bg-primary text-white p-3">
+
+                <h4>Total Products</h4>
+
+                <h2>@ViewBag.TotalProducts</h2>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card bg-success text-white p-3">
+
+                <h4>Add Product</h4>
+
+                <a href="/Product/Create" class="btn btn-light mt-2">
+                    Add Product
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="card bg-warning text-white p-3">
+
+                <h4>View Products</h4>
+
+                <a href="/Product" class="btn btn-light mt-2">
+                    Manage Products
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

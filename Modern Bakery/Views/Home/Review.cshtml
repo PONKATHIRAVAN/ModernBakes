@@ -1,0 +1,113 @@
+﻿@model IEnumerable<BakeryShop.Models.ContactMessage>
+
+<style>
+    .review-bg {
+        background: linear-gradient(135deg,#f8fbff,#eaf3ff);
+        padding: 50px 0;
+    }
+
+    .review-card {
+        border: none;
+        border-radius: 20px;
+        padding: 20px;
+        background: #fff;
+        transition: 0.4s ease;
+        cursor: pointer;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+        .review-card:hover {
+            transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) translateY(-10px);
+            box-shadow: 0 20px 45px rgba(0,0,0,0.2);
+        }
+
+    .review-name {
+        font-weight: 600;
+    }
+
+    .star {
+        color: gold;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+
+    .review-card:hover .star {
+        transform: scale(1.2);
+        text-shadow: 0 0 8px gold;
+    }
+
+    .review-card p {
+        color: #555;
+    }
+
+    .fade-in {
+        animation: fadeIn 0.8s ease;
+    }
+
+    @@keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* floating effect */
+    .float {
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @@keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-6px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+</style>
+
+<div class="review-bg">
+
+    <div class="container mt-5 fade-in">
+
+        <h2 class="text-center mb-4">💬 Customer Reviews</h2>
+
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-md-4 mb-4">
+
+                    <div class="review-card float">
+
+                        <h5 class="review-name">@item.Name</h5>
+
+                        <p>@item.Message</p>
+
+                        <div>
+                            @for (int i = 0; i < item.Rating; i++)
+                            {
+                                <span class="star">★</span>
+                            }
+                        </div>
+
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+    </div>
+
+</div>

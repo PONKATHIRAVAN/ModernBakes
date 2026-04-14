@@ -1,0 +1,157 @@
+﻿@{
+    Layout = "_Layout";
+}
+
+<style>
+    .feature-box {
+        cursor: pointer;
+        padding: 10px;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease;
+    }
+
+        .feature-box.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+    .footer-custom {
+        background: #1f252b;
+        width: 100%;
+        margin: 0;
+    }
+</style>
+
+<div class="hero-section text-white"></div>
+
+<div class="container mt-5">
+
+    <h2 class="text-center mb-4">Why Choose Our Bakery?</h2>
+
+    <div class="row text-center">
+
+        <div class="col-md-3 mb-3">
+            <div class="feature-box">
+                <h4>🎂 Fresh Cakes</h4>
+                <p>We prepare fresh cakes every day using high quality ingredients.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="feature-box">
+                <h4>🍞 Fresh Bread</h4>
+                <p>Freshly baked breads, buns, donuts and cookies every morning.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="feature-box">
+                <h4>🍪 Delicious Cookies</h4>
+                <p>Try our famous chocolate cookies and homemade biscuits.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <div class="feature-box">
+                <h4>🥐 Ooty Varkey</h4>
+                <p>Crispy buttery snack loved by many customers.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mt-4 text-center">
+
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <h4>🍫 HomeMade Chocolates</h4>
+                <p>
+                    We offer a variety of delicious chocolates including
+                    dark chocolate, milk chocolate, and chocolate truffles
+                    made with high quality cocoa.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <h4>🍷 Wine</h4>
+                <p>
+                    We provide a selection of quality wines perfect for
+                    celebrations and special occasions.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <h4>☕ Ooty Special Tea Powder</h4>
+                <p>
+                    Fresh Ooty tea powder with strong aroma and rich taste.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row text-center mt-4">
+
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <h4>🕒 Opening Hours</h4>
+                <p>
+                    Monday – Sunday <br>
+                    9:30 AM – 09:00 PM
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <h4>⭐ Customer Rating</h4>
+                <h2 class="text-warning">@ViewBag.Rating / 5</h2>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="feature-box">
+                <h4>📦 Special Orders</h4>
+                <p>
+                    Custom cake orders for birthdays, weddings and events.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row text-center mt-4">
+        <div class="col-md-12">
+            <div class="feature-box">
+                <h4>⭐ Quality Service</h4>
+                <p>
+                    Modern Bakery provides the best quality products
+                    with friendly customer service and fresh ingredients.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const boxes = document.querySelectorAll('.feature-box');
+
+        boxes.forEach((box, index) => {
+            setTimeout(() => {
+                box.classList.add('show');
+            }, index * 300); // delay between each box
+        });
+    });
+</script>
